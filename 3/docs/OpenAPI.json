@@ -1,0 +1,127 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Users API",
+    "description": "Users API to Orbi",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    },
+    {
+      "url": "http://localhost"
+    }
+  ],
+  "paths": {
+    "/v1/health": {
+      "get": {
+        "operationId": "healthCheck",
+        "tags": [
+          "Health check"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+
+      }
+
+    },
+    "/v1/orders": {
+      "post": {
+        "operationId": "createOrder",
+        "tags": [
+          "Orders"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/CreateOrder"
+        },
+        "responses": {
+          "201": {
+            "description": "Success scenario!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderSummary"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Order": {
+        "type": "object",
+        "properties": {
+          "stratum": {
+            "type": "integer",
+            "example": 1
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "price": {
+            "type": "number",
+            "example": 1
+          },
+          "quantity": {
+            "type": "number",
+            "example": 1
+          }
+        }
+      },
+      "OrderSummary": {
+        "type": "object",
+        "properties": {
+          "subtotal": {
+            "type": "number",
+            "example": 100
+          },
+          "shipping_cost": {
+            "type": "number",
+            "example": 10
+          },
+          "discount": {
+            "type": "number",
+            "example": 10
+          },
+          "total": {
+            "type": "number",
+            "example": 100
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "CreateOrder": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Order"
+            }
+          }
+        }
+      }
+    }
+  }
+}
