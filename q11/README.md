@@ -1,4 +1,4 @@
-# Algoritmos y Estructuras de Datos
+# 1. Algoritmos y Estructuras de Datos
 Pregunta 1 (Complejidad y Optimización):
 - Genere creativamente un gran conjunto de datos de
 transacciones de clientes de una plataforma local de
@@ -11,3 +11,4 @@ de tiempo específico. Analice la complejidad
 temporal y espacial de su solución. Considere la
 posibilidad de gestionar conjuntos de datos muy
 grandes que podrían exceder la memoria disponible.
+### [Ver solución](./cmd)
