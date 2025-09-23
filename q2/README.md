@@ -31,4 +31,4 @@ El diseño se realizo pensando principalmente en el flujo de compra y entrega de
   si la información se indexa adecuadamente tiene un performance similar al uso de Redis (u otro Sistema Gestor de Base de Datos Clave-Valor)
 - Opte por usar el patrón Transactional Outbox para garantizar la consistencia de información al confirmar una orden.
 - Para el patrón de CQRS decidí usar DynamoDB para las lecturas y PostgreSQL para las escrituras.
-- Si bien en el diagrama no se muestra explícitamente, yo replicaría la información aprovechando el WAL de PostgreSQL.
+- Si bien en el diagrama no se muestra explícitamente, al implementar el patrón CQRS yo replicaría la información aprovechando el WAL de PostgreSQL.
