@@ -5,3 +5,6 @@ build:
 
 run: build
 	./build/http | jq
+
+test:
+	go test ./...

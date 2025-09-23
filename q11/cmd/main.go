@@ -7,16 +7,15 @@ import (
 )
 
 func main() {
-	const bufferSize = 100
 	frequencies := make(map[string]int)
 
 	// READING TRANSACTION BUFFER
-	for t := range transaction.Buffer(bufferSize) {
+	const transactions = 100
+	for t := range transaction.Buffer(transactions) {
 		frequencies[t.ClientID]++
 	}
 
 	// FILTERING CLIENT FREQUENCIES TO GET TOP 10 CLIENTS
-	const maxCommerces = 10
 	clients := list.New()
 
 	for clientID, frequency := range frequencies {
@@ -25,7 +24,8 @@ func main() {
 			Frequency: frequency,
 		}
 
-		if clients.Len() <= maxCommerces {
+		const maxClients = 10
+		if clients.Len() <= maxClients {
 			clients.PushBack(client)
 			continue
 		}

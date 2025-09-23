@@ -6,12 +6,11 @@ import (
 	"time"
 )
 
-const bufferLimit = 50
-
 type Client struct {
 	ID        string
 	Frequency int
 }
+
 type Transaction struct {
 	CreatedAt time.Time
 	ClientID  string
@@ -20,6 +19,7 @@ type Transaction struct {
 
 // Buffer returns a buffer that generates n fake transactions
 func Buffer(n int) <-chan Transaction {
+	const bufferLimit = 50
 	transactionCh := make(chan Transaction, bufferLimit)
 
 	go func() {

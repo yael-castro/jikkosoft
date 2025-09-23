@@ -29,6 +29,10 @@
 - [Hexagonal pattern](https://alistair.cockburn.us/hexagonal-architecture/)
 - Design patterns ([Bridge](https://refactoring.guru/design-patterns/bridge), [Decorator](https://refactoring.guru/design-patterns/decorator))
 
+### Buenas prácticas empleadas
+- NO magic numbers
+- Effective Go
+
 ### Documentación
 [OpenAPI specification](docs/OpenAPI.json)
 
